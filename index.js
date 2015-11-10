@@ -1,0 +1,16 @@
+/**
+ * Created by sanjoy on 11/10/15.
+ */
+import makeStore from './src/store'
+import startServer from './src/server'
+
+export const store = makeStore();
+startServer(store);
+
+store.dispatch({
+    type: 'SET_ENTRIES',
+    entries: require('./seeds/entries.json')
+})
+store.dispatch({
+    type:'NEXT',
+})
